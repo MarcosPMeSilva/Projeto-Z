@@ -1,0 +1,2144 @@
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- LINK PARA LIGAÇÃO DO CSS -->
+
+    <link rel="stylesheet" type="text/css" href="Home.css">
+
+    <!-- BARRA DE NAVEGAÇÃO -->
+    <form>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="Home.css"/>
+
+</head>
+
+<body>
+
+    <!-- BARRA DE NAVEGAÇÃO PARTE 2 -->
+
+    <header>
+        <nav>
+          <a class="logo">   Projeto Z</a>
+          <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul class="nav-list">
+            <li><a href="Sobre.html">SOBRE</a></li>
+            <li><a href="login.html">SAIR</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+
+        <div>
+            <hr class="hr2">
+        </div> 
+
+        <div class = "layout">
+
+            <!--BOTÕES 1º Ciclo/6ºCiclo-->
+
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Modal1"> 1º Ciclo </button>
+
+            <div>
+                <hr class="hr3">
+            </div> 
+
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Modal2"> 2º Ciclo </button>
+
+            <div>
+                <hr class="hr3">
+            </div>
+
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Modal3"> 3º Ciclo </button>
+
+            <div>
+                <hr class="hr3">
+            </div>
+
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Modal4"> 4º Ciclo </button>
+
+            <div>
+                <hr class="hr3">
+            </div>
+
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Modal5"> 5º Ciclo </button>
+
+            <div>
+                <hr class="hr3">
+            </div>
+
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Modal6"> 6º Ciclo </button>
+
+            <div>
+                <hr class="hr3">
+            </div>
+
+        </div>
+
+      </main>
+
+      <script src="navbar.js"></script>
+
+
+<!--LIGAÇÃO COM FIREBASE-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyDTmOmEadvRDoTflufCtTZ-lOANwMGSIpU",
+        authDomain: "trab3materias-8b0c9.firebaseapp.com",
+        projectId: "trab3materias-8b0c9",
+        storageBucket: "trab3materias-8b0c9.appspot.com",
+        messagingSenderId: "319530127632",
+        appId: "1:319530127632:web:862e768e0f919358b8d595",
+        measurementId: "G-3XVC0PB277"
+    };
+
+    // INICIALIZAÇÃO FIREBASE
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    firebase.auth();
+
+        // VERIFICAÇÃO SE O USUÁRIO ESTÁ LOGADO
+
+        var email = $('#login').val(); firebase.auth().signInWithEmailAndPassword(email).then((userCredential) => {
+                var user = userCredential.user;                        
+                window.location="home.html"
+                $('#containerLogin').hide(1000);
+                $('#logado').show();
+                $('#userName').html('Usuário logado: ' + user.email);
+            });    
+        </script>
+
+    <!-- CHAMADA DO MODAL (1º ciclo)-->
+
+        <ul class="nav flex-column">           
+
+            <div>
+                <hr class="hr1">
+            </div>
+
+<!-- MODAL -->
+
+<div id="Modal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"> Escolha seu curso </h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>               
+            </div>
+
+<!-- Chamada do Modal -->
+
+            <div class="modal-body">
+                <ul class="nav flex-column">
+                    <li class="active"><a data-toggle="tab" href="#ADS"> Análise e Desenvolvimento de Sistemas  </a></li>
+
+                    <li><a data-toggle="tab" href="#Produção"> Produção Industrial  </a></li>
+
+                    <li><a data-toggle="tab" href="#Agronegócio"> Agronegócio  </a></li>
+
+                    <li><a data-toggle="tab" href="#Radiologia"> Radiologia  </a></li>
+
+                    <li><a data-toggle="tab" href="#Logística"> Logística  </a></li>
+
+                <ul>
+
+                <div class="tab-content">
+
+                    <div>
+                        <hr class="hr1">
+                    </div>                       
+
+                    <!-- TAB ANÁLISE E DESENVOLVIMENTO DE SISTEMAS -->    
+
+                    <div id="ADS" class="tab-pane fade">
+                        <h4>Escolha a matéria (ADS)</h4>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='AOC.html'"> Arquitetura e Organização de Computadores
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>    
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Algoritmos.html'"> Algoritmos e Lógica de Programação
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='ProgMicro.html'"> Programação em Microinformática
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='LabHard.html'"> Laboratório de Hardware
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='MatDisc.html'"> Matemática Discreta
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Administração Geral
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Ingles1.html'"> Inglês I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                    </div>
+
+                    <!-- TAB AGRONEGÓCIO --> 
+
+                    <div id="Agronegócio" class="tab-pane fade">
+                        <h4>Escolha a matéria (Agronegócio)</h4>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada ao Agronegócio
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Vegetal I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Animal I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Agronegócio
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Português
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                    </div>
+
+                    <!-- TAB RADIOLOGIA --> 
+
+                    <div id="Radiologia" class="tab-pane fade">
+                        <h4>Escolha a matéria (Radiologia)</h4>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Psicologia do Relacionamento Humano
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Mecânica Clássica
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tópicos de Matemática Elementar
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Eletromagnetismo
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Física Moderna
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos da Radiologia
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Anatomia Humana I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Biofísica
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                    </div>
+
+                    <!-- TAB PRODUÇÃO INDUSTRIAL --> 
+
+                    <div id="Produção" class="tab-pane fade">
+                        <h4>Escolha a matéria (Produção)</h4>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em informática Aplic. à Prod. Industrial
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada à Produção Industrial
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Metod. da Pesq. Cientifico-Tecnológico
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em Física Aplicada
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Física Aplicada
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                    </div>
+
+                    <!-- TAB LOGÍSTICA --> 
+
+                    <div id="Logística" class="tab-pane fade">
+                        <h4>Escolha a matéria (Logística)</h4>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Método p/ Produção de Conhecimento
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Projeto Interdisciplinar I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação e Expressão
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Básica
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Calculo I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Logística
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                        </button>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                        <div>
+                            <hr class="hr1">
+                        </div>
+
+                    </div>
+
+                    <!-- FIM TAB MODELS --> 
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr>
+               
+<!-- CHAMADA DO MODAL (2º ciclo)-->
+
+<ul class="nav flex-column">
+
+<!-- MODAL -->
+
+<div id="Modal2" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+    <div class="modal-header">
+        <h2 class="modal-title"> Escolha seu curso </h2>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>               
+    </div>
+
+<!-- Chamada do Modal -->
+
+    <div class="modal-body">
+        <ul class="nav flex-column">
+            <li class="active"><a data-toggle="tab" href="#ADS2"> Análise e Desenvolvimento de Sistemas  </a></li>
+
+            <li><a data-toggle="tab" href="#Produção2"> Produção Industrial  </a></li>
+
+            <li><a data-toggle="tab" href="#Agronegócio2"> Agronegócio  </a></li>
+
+            <li><a data-toggle="tab" href="#Radiologia2"> Radiologia  </a></li>
+
+            <li><a data-toggle="tab" href="#Logística2"> Logística  </a></li>
+
+        <ul>
+
+        <div class="tab-content">
+
+                <hr>
+
+            <!-- TAB ANÁLISE E DESENVOLVIMENTO DE SISTEMAS -->    
+
+            <div id="ADS2" class="tab-pane fade">
+                <h4>Escolha a matéria (ADS)</h4>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Arquitetura e Organização de Computadores
+                </button>
+
+                    <hr>    
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Algoritmos.html'"> Algoritmos e Lógica de Programação
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='ProgMicro.html'"> Programação em Microinformática
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='LabHard.html'"> Laboratório de Hardware
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='MatDisc.html'"> Matemática Discreta
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Administração Geral
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Ingles1.html'"> Inglês I
+                </button>
+
+                    <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB AGRONEGÓCIO --> 
+
+            <div id="Agronegócio2" class="tab-pane fade">
+                <h4>Escolha a matéria (Agronegócio)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada ao Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Vegetal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Animal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Português
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB RADIOLOGIA --> 
+
+            <div id="Radiologia2" class="tab-pane fade">
+                <h4>Escolha a matéria (Radiologia)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Psicologia do Relacionamento Humano
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Mecânica Clássica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tópicos de Matemática Elementar
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Eletromagnetismo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Física Moderna
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos da Radiologia
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Anatomia Humana I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Biofísica
+                </button>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB PRODUÇÃO INDUSTRIAL --> 
+
+            <div id="Produção2" class="tab-pane fade">
+                <h4>Escolha a matéria (Produção)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em informática Aplic. à Prod. Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada à Produção Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Metod. da Pesq. Cientifico-Tecnológico
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB LOGÍSTICA --> 
+
+            <div id="Logística2" class="tab-pane fade">
+                <h4>Escolha a matéria (Logística)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Método p/ Produção de Conhecimento
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Projeto Interdisciplinar I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação e Expressão
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Básica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Calculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Logística
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+            </div>
+
+            <!-- FIM TAB MODELS --> 
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- CHAMADA DO MODAL (3º ciclo)-->
+
+
+<ul class="nav flex-column">
+
+<!-- MODAL -->
+
+<div id="Modal3" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+    <div class="modal-header">
+        <h2 class="modal-title"> Escolha seu curso </h2>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>               
+    </div>
+
+<!-- Chamada do Modal -->
+
+    <div class="modal-body">
+        <ul class="nav flex-column">
+            <li class="active"><a data-toggle="tab" href="#ADS3"> Análise e Desenvolvimento de Sistemas  </a></li>
+
+            <li><a data-toggle="tab" href="#Produção3"> Produção Industrial  </a></li>
+
+            <li><a data-toggle="tab" href="#Agronegócio3"> Agronegócio  </a></li>
+
+            <li><a data-toggle="tab" href="#Radiologia3"> Radiologia  </a></li>
+
+            <li><a data-toggle="tab" href="#Logística3"> Logística  </a></li>
+
+        <ul>
+
+        <div class="tab-content">
+
+                <hr>
+
+            <!-- TAB ANÁLISE E DESENVOLVIMENTO DE SISTEMAS -->    
+
+            <div id="ADS3" class="tab-pane fade">
+                <h4>Escolha a matéria (ADS)</h4>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Arquitetura e Organização de Computadores
+                </button>
+
+                    <hr>    
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Algoritmos.html'"> Algoritmos e Lógica de Programação
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='ProgMicro.html'"> Programação em Microinformática
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='LabHard.html'"> Laboratório de Hardware
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='MatDisc.html'"> Matemática Discreta
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Administração Geral
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Ingles1.html'"> Inglês I
+                </button>
+
+                    <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB AGRONEGÓCIO --> 
+
+            <div id="Agronegócio3" class="tab-pane fade">
+                <h4>Escolha a matéria (Agronegócio)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada ao Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Vegetal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Animal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Português
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB RADIOLOGIA --> 
+
+            <div id="Radiologia3" class="tab-pane fade">
+                <h4>Escolha a matéria (Radiologia)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Psicologia do Relacionamento Humano
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Mecânica Clássica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tópicos de Matemática Elementar
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Eletromagnetismo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Física Moderna
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos da Radiologia
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Anatomia Humana I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Biofísica
+                </button>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB PRODUÇÃO INDUSTRIAL --> 
+
+            <div id="Produção3" class="tab-pane fade">
+                <h4>Escolha a matéria (Produção)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em informática Aplic. à Prod. Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada à Produção Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Metod. da Pesq. Cientifico-Tecnológico
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB LOGÍSTICA --> 
+
+            <div id="Logística3" class="tab-pane fade">
+                <h4>Escolha a matéria (Logística)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Método p/ Produção de Conhecimento
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Projeto Interdisciplinar I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação e Expressão
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Básica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Calculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Logística
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+            </div>
+
+            <!-- FIM TAB MODELS --> 
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- CHAMADA DO MODAL (4º ciclo)-->
+
+<ul class="nav flex-column">
+
+<!-- MODAL -->
+
+<div id="Modal4" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+    <div class="modal-header">
+        <h2 class="modal-title"> Escolha seu curso </h2>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>               
+    </div>
+
+<!-- Chamada do Modal -->
+
+    <div class="modal-body">
+        <ul class="nav flex-column">
+            <li class="active"><a data-toggle="tab" href="#ADS4"> Análise e Desenvolvimento de Sistemas  </a></li>
+
+            <li><a data-toggle="tab" href="#Produção4"> Produção Industrial  </a></li>
+
+            <li><a data-toggle="tab" href="#Agronegócio4"> Agronegócio  </a></li>
+
+            <li><a data-toggle="tab" href="#Radiologia4"> Radiologia  </a></li>
+
+            <li><a data-toggle="tab" href="#Logística4"> Logística  </a></li>
+
+        <ul>
+
+        <div class="tab-content">
+
+                <hr>
+
+            <!-- TAB ANÁLISE E DESENVOLVIMENTO DE SISTEMAS -->    
+
+            <div id="ADS4" class="tab-pane fade">
+                <h4>Escolha a matéria (ADS)</h4>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Arquitetura e Organização de Computadores
+                </button>
+
+                    <hr>    
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Algoritmos.html'"> Algoritmos e Lógica de Programação
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='ProgMicro.html'"> Programação em Microinformática
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='LabHard.html'"> Laboratório de Hardware
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='MatDisc.html'"> Matemática Discreta
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Administração Geral
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Ingles1.html'"> Inglês I
+                </button>
+
+                    <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB AGRONEGÓCIO --> 
+
+            <div id="Agronegócio4" class="tab-pane fade">
+                <h4>Escolha a matéria (Agronegócio)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada ao Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Vegetal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Animal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Português
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB RADIOLOGIA --> 
+
+            <div id="Radiologia4" class="tab-pane fade">
+                <h4>Escolha a matéria (Radiologia)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Psicologia do Relacionamento Humano
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Mecânica Clássica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tópicos de Matemática Elementar
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Eletromagnetismo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Física Moderna
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos da Radiologia
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Anatomia Humana I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Biofísica
+                </button>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB PRODUÇÃO INDUSTRIAL --> 
+
+            <div id="Produção4" class="tab-pane fade">
+                <h4>Escolha a matéria (Produção)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em informática Aplic. à Prod. Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada à Produção Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Metod. da Pesq. Cientifico-Tecnológico
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB LOGÍSTICA --> 
+
+            <div id="Logística4" class="tab-pane fade">
+                <h4>Escolha a matéria (Logística)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Método p/ Produção de Conhecimento
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Projeto Interdisciplinar I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação e Expressão
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Básica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Calculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Logística
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+            </div>
+
+            <!-- FIM TAB MODELS --> 
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- CHAMADA DO MODAL (5º ciclo)-->
+
+<ul class="nav flex-column">
+
+<!-- MODAL -->
+
+<div id="Modal5" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+    <div class="modal-header">
+        <h2 class="modal-title"> Escolha seu curso </h2>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>               
+    </div>
+
+<!-- Chamada do Modal -->
+
+    <div class="modal-body">
+        <ul class="nav flex-column">
+            <li class="active"><a data-toggle="tab" href="#ADS5"> Análise e Desenvolvimento de Sistemas  </a></li>
+
+            <li><a data-toggle="tab" href="#Produção5"> Produção Industrial  </a></li>
+
+            <li><a data-toggle="tab" href="#Agronegócio5"> Agronegócio  </a></li>
+
+            <li><a data-toggle="tab" href="#Radiologia5"> Radiologia  </a></li>
+
+            <li><a data-toggle="tab" href="#Logística5"> Logística  </a></li>
+
+        <ul>
+
+        <div class="tab-content">
+
+                <hr>
+
+            <!-- TAB ANÁLISE E DESENVOLVIMENTO DE SISTEMAS -->    
+
+            <div id="ADS5" class="tab-pane fade">
+                <h4>Escolha a matéria (ADS)</h4>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Arquitetura e Organização de Computadores
+                </button>
+
+                    <hr>    
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Algoritmos.html'"> Algoritmos e Lógica de Programação
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='ProgMicro.html'"> Programação em Microinformática
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='LabHard.html'"> Laboratório de Hardware
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='MatDisc.html'"> Matemática Discreta
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Administração Geral
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Ingles1.html'"> Inglês I
+                </button>
+
+                    <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB AGRONEGÓCIO --> 
+
+            <div id="Agronegócio5" class="tab-pane fade">
+                <h4>Escolha a matéria (Agronegócio)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada ao Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Vegetal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Animal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Português
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB RADIOLOGIA --> 
+
+            <div id="Radiologia5" class="tab-pane fade">
+                <h4>Escolha a matéria (Radiologia)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Psicologia do Relacionamento Humano
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Mecânica Clássica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tópicos de Matemática Elementar
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Eletromagnetismo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Física Moderna
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos da Radiologia
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Anatomia Humana I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Biofísica
+                </button>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB PRODUÇÃO INDUSTRIAL --> 
+
+            <div id="Produção5" class="tab-pane fade">
+                <h4>Escolha a matéria (Produção)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em informática Aplic. à Prod. Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada à Produção Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Metod. da Pesq. Cientifico-Tecnológico
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB LOGÍSTICA --> 
+
+            <div id="Logística5" class="tab-pane fade">
+                <h4>Escolha a matéria (Logística)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Método p/ Produção de Conhecimento
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Projeto Interdisciplinar I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação e Expressão
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Básica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Calculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Logística
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+            </div>
+
+            <!-- FIM TAB MODELS --> 
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- CHAMADA DO MODAL (6º ciclo)-->
+
+<ul class="nav flex-column">
+
+<!-- MODAL -->
+
+<div id="Modal6" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+    <div class="modal-header">
+        <h2 class="modal-title"> Escolha seu curso </h2>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>               
+    </div>
+
+<!-- Chamada do Modal -->
+
+    <div class="modal-body">
+        <ul class="nav flex-column">
+            <li class="active"><a data-toggle="tab" href="#ADS6"> Análise e Desenvolvimento de Sistemas  </a></li>
+
+            <li><a data-toggle="tab" href="#Produção6"> Produção Industrial  </a></li>
+
+            <li><a data-toggle="tab" href="#Agronegócio6"> Agronegócio  </a></li>
+
+            <li><a data-toggle="tab" href="#Radiologia6"> Radiologia  </a></li>
+
+            <li><a data-toggle="tab" href="#Logística6"> Logística  </a></li>
+
+        <ul>
+
+        <div class="tab-content">
+
+                <hr>
+
+            <!-- TAB ANÁLISE E DESENVOLVIMENTO DE SISTEMAS -->    
+
+            <div id="ADS6" class="tab-pane fade">
+                <h4>Escolha a matéria (ADS)</h4>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Arquitetura e Organização de Computadores
+                </button>
+
+                    <hr>    
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Algoritmos.html'"> Algoritmos e Lógica de Programação
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='ProgMicro.html'"> Programação em Microinformática
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='LabHard.html'"> Laboratório de Hardware
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='MatDisc.html'"> Matemática Discreta
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Adm.html'"> Administração Geral
+                </button>
+
+                    <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Ingles1.html'"> Inglês I
+                </button>
+
+                    <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB AGRONEGÓCIO --> 
+
+            <div id="Agronegócio6" class="tab-pane fade">
+                <h4>Escolha a matéria (Agronegócio)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada ao Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Vegetal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tecnologia de Produção Animal I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Agronegócio
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Português
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB RADIOLOGIA --> 
+
+            <div id="Radiologia6" class="tab-pane fade">
+                <h4>Escolha a matéria (Radiologia)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Psicologia do Relacionamento Humano
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Mecânica Clássica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Tópicos de Matemática Elementar
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos do Eletromagnetismo
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos de Física Moderna
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Fundamentos da Radiologia
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Anatomia Humana I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Biofísica
+                </button>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB PRODUÇÃO INDUSTRIAL --> 
+
+            <div id="Produção6" class="tab-pane fade">
+                <h4>Escolha a matéria (Produção)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em informática Aplic. à Prod. Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Aplicada à Produção Industrial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Metod. da Pesq. Cientifico-Tecnológico
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação Empresarial
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> AAP em Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Física Aplicada
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Cálculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+            </div>
+
+            <!-- TAB LOGÍSTICA --> 
+
+            <div id="Logística6" class="tab-pane fade">
+                <h4>Escolha a matéria (Logística)</h4>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Método p/ Produção de Conhecimento
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Projeto Interdisciplinar I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Comunicação e Expressão
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Administração Geral
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Informática Básica
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Calculo I
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Logística
+                </button>
+
+                <hr>
+
+                <button type="button" class="btn btn-dark" onclick="window.location.href='Teste.html'"> Inglês I
+                </button>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+
+                <hr>
+            </div>
+
+            <!-- FIM TAB MODELS --> 
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+</div>
+</div>
+
+</form>
+
+</body>
+</html>

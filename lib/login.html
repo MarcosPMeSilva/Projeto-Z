@@ -1,0 +1,180 @@
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- LINK PARA LIGAÇÃO DO CSS -->
+
+    <link rel="stylesheet" type="text/css" href="login.css">
+
+</head>
+
+<body> 
+
+    <!--LIGAÇÃO COM FIREBASE-->
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDTmOmEadvRDoTflufCtTZ-lOANwMGSIpU",
+            authDomain: "trab3materias-8b0c9.firebaseapp.com",
+            projectId: "trab3materias-8b0c9",
+            storageBucket: "trab3materias-8b0c9.appspot.com",
+            messagingSenderId: "319530127632",
+            appId: "1:319530127632:web:862e768e0f919358b8d595",
+            measurementId: "G-3XVC0PB277"
+        };
+
+        // INICIALIZAÇÃO FIREBASE
+
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        firebase.auth();
+
+        //FUNÇÃO CRIAR NOVO USUÁRIO
+
+        function novoUsuario() {
+            var email = $('#email').val();
+            var password = $('#pwd').val();
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    var user = userCredential.user;
+                    alert(user.email);
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        }
+
+        //FUNÇÃO LOGAR USUÁRIO
+
+        function loginUsuario() {
+            var email = $('#login').val(); var password = $('#senha').val(); firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+                var user = userCredential.user;
+                window.location="home.html"
+                $('#containerLogin').hide(1000);
+                $('#logado').show();
+                $('#userName').html('Usuário logado: ' + user.email);
+            })
+                .catch((error) => {
+                    var errorCode = error.code; var errorMessage = error.message;
+                    alert(errorMessage)
+                });
+        }
+        function sairUsuario() {
+            firebase.auth().signOut().then(() => {
+                $('#containerLogin').show();
+                $('#logado').hide();
+            }).catch((error) => {
+                // An error happened.
+            });
+        }
+
+    </script>
+
+    <!--ALINHAMENTO CONTAINER/CARD-->
+
+    <div class="col-sm-12 h-100">
+        <div class="row h-100 justify-content-center align-items-center">   
+            <form>
+                <div class='container'>
+                    <div class= 'card'>
+                        <h1> Entrar </h1>
+
+                        <div>
+                            <hr>
+                        </div>
+                    
+                    
+                    <!--CONTAINER LOGIN/CADASTRO-->
+                    
+                    
+                    <div class="text-center" id="containerLogin"><input type="email"
+                            class="form-control  mb-2 mr-sm-2" id="login" placeholder="E-mail" name="login">
+                        <div class="container"> </div>
+                        <input type="password" class="form-control  mb-2 mr-sm-2" id="senha"
+                            placeholder="Senha" name="senha">
+
+                            <div style="right: 100px;">
+
+                            <!--LINHA DE SEPARAÇÃO CSS 1-->
+
+                            <div>
+                                <hr class="hr1">
+                            </div>
+
+                            <!--BOTÃO LOGIN/CADASTRO-->
+
+                        <div class="text-center">
+                            <button type="button" class="btn btn-dark" onclick="loginUsuario()">
+                                    LOGIN      
+                            </button>
+
+                            <!--LINHA DE SEPARAÇÃO CSS 2-->
+
+                            <div>
+                                <hr class="hr2">
+                            </div>
+
+                        </div>
+                            <div class="text-center">
+                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#novoModal">
+                                    CADASTRAR
+                            </button> 
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group collapse" id="logado"><label for="userName" id="userName"></label>
+                    <button type="button" class="btn btn-light mb-2 mr-sm-2" onclick="sairUsuario()">
+                        Sair
+                    </button>
+                </div>
+        </div>
+        </form>
+    </div>
+    <!--Novo Usuário -->
+    <div class="modal fade" id="novoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Criação do Novo Usuário</h4><button type="button" class="close"
+                        data-dismiss="modal">×</button>
+                </div>
+                <!--Modal body -->
+                <div class="modal-body">
+                    <h2>Dados do Usuário</h2>
+                    <div class="form-group"><label for="email">Email:</label><input type="email" class="form-control"
+                            id="email" placeholder="Enter email" name="email"></div>
+                    <div class="form-group"><label for="pwd">Senha:</label><input type="password" class="form-control"
+                            id="pwd" placeholder="Enter password" name="pswd"></div>
+                    <button type="button" class="btn btn-primary" onclick="novoUsuario()">
+                        Salvar
+                    </button>
+                </div>
+                <!--Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
