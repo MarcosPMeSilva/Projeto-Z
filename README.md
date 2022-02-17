@@ -23,7 +23,7 @@ A criação desse sistema visa a extensão da “Pasta Z”, uma rede compartilh
 * [Bootstrap](https://getbootstrap.com) <img align="center" alt="html" height="30" width="30" src="https://www.logo.wine/a/logo/Bootstrap_(front-end_framework)/Bootstrap_(front-end_framework)-Logo.wine.svg">
 
 ## Clonar repositório
-    git clone https://github.com/AlvLeonardo/projetoZ
+    git clone https://github.com/MarcosPMeSilva/Projeto-Z
 
 # Utilização
 
